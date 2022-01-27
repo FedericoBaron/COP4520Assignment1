@@ -48,7 +48,7 @@ public class hw1COP4520Sieve{
         }
 
         long timeEnd = System.currentTimeMillis();
-        
+
         System.out.println("Execution time: " + (timeEnd - timeStart) + "ms");
         System.out.println("Total number of primes found: " + pCount);
         System.out.println("Sum of all primes found: " + sumOfP);
@@ -63,8 +63,11 @@ public class hw1COP4520Sieve{
     
         public void run(){
             int currLocal = current.getAndAdd(2);
+
             while(currLocal < compositeList.length){
-                doSieve(currLocal);
+                if(compositeList[currLocal] == false){
+                    doSieve(currLocal);
+                }
                 currLocal = current.getAndAdd(2);
             }
         }
